@@ -281,5 +281,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 197f4efef865fd446a93693f95af32bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 3
+  MoveSpeed: 5
+  OffSet: 1.5
   Segment: {fileID: 7249927463325231458, guid: 779c342e43f30834c96bce10ed7383ad, type: 3}
