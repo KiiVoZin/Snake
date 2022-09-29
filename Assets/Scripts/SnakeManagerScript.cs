@@ -44,7 +44,7 @@ public class SnakeManagerScript : MonoBehaviour
         EatFood();
         for (int i = 1; i < MarkerList.Count; i++)
         {
-            Debug.DrawLine(MarkerList[i - 1], MarkerList[i]);
+            Debug.DrawLine(MarkerList[i - 1], MarkerList[i], Color.black);
         }
     }
 
@@ -100,8 +100,11 @@ public class SnakeManagerScript : MonoBehaviour
             }
             if (closestMarker == 0)
             {
-                newPositions.Add(snakeBody[i].transform.position);
-                continue;
+                for (int k = i; k < snakeBody.Count; k++)
+                {
+                    newPositions.Add(snakeBody[i].transform.position);
+                }
+                    return newPositions;
             }
             Vector2 test = MarkerList[closestMarker] + ((MarkerList[closestMarker - 1] - MarkerList[closestMarker]).normalized * (distance - OffSet));
             newPositions.Add(test);
@@ -129,12 +132,10 @@ public class SnakeManagerScript : MonoBehaviour
     {
         GameObject eaten = CollisionScript.CollideWithIntersect(snakeBody[0], HeadPosition);
         if (eaten == null) return;
-        Debug.Log("NEWPOS: " + snakeBody[0].transform.position);
-        Debug.Log("OLDPOS: " + HeadPosition);
-        Debug.DrawLine(snakeBody[0].transform.position, HeadPosition, Color.blue, 1f);
         GenerateFood();
         CollisionScript.Remove(eaten);
         Destroy(eaten);
         AddSegment();
+        Debug.Log("EAT");
     }
 }
