@@ -136,6 +136,5 @@ public class SnakeManagerScript : MonoBehaviour
         CollisionScript.Remove(eaten);
         Destroy(eaten);
         AddSegment();
-        Debug.Log("EAT");
     }
 }
