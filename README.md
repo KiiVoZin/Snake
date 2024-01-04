@@ -1,0 +1,1 @@
+This project is made with Unity. It copies the principles of the classic game "Snake". The goal was to be able to add segments to the snake, and make it so that each segment stays the given distance from the last segment. Frame rate, unusual movements or anything else cannot break the snake.
